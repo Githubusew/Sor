@@ -1,5 +1,5 @@
 from smartapi import SmartConnect
-import pyotp
+from python import pyotp
 pyotp.TOTP(token).now()
  obj=SmartConnect(api_key=apikey)
  data = obj.generateSession(username,pwd,pyotp.TOTP(token).now())
