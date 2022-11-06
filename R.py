@@ -1,7 +1,7 @@
 from smartapi import SmartConnect 
  import pyotp 
   
- token = 'DCASFPWTRVAJML7KW2QBWJ2DAY' 
+token = 'DCASFPWTRVAJML7KW2QBWJ2DAY' 
   
  import pyotp 
   
