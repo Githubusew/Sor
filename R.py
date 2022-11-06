@@ -1,5 +1,4 @@
 from smartapi import SmartConnect
-token = "DCASFPWTRVAJML7KW2QBWJ2DAY"
 import pyotp
 pyotp.TOTP(token).now()
  token = "DCASFPWTRVAJML7KW2QBWJ2DAY"
