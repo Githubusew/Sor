@@ -1,24 +1,45 @@
-from smartapi import SmartConnect
+token = 'DCASFPWTRVAJML7KW2QBWJ2DAY'
+
 import pyotp
-token = ' DCASFPWTRVAJML7KW2QBWJ2DAY '
-import pyotp
+
 pyotp.TOTP(token).now()
-apikey = ' KUiYK7su '
-username = ' a356453 '
-pwd = ' Home~641 '
-token = ' DCASFPWTRVAJML7KW2QBWJ2DAY '
-obj=SmartConnect(api_key=apikey)
-data = obj.generateSession(username,pwd,pyotp.TOTP(token).now())
-refreshToken= data['data']['refreshToken']
-res = obj.getProfile(refreshToken)
+
+
+
 from smartapi import SmartConnect
-from datetime import datetime
-import credentials
-import requests
-import numpy as np   
+from smartapi.smartConnect import SmartConnect
+import smartapi.smartExceptions
+
+
+
+obj=SmartConnect(api_key = "KUiYK7su")     
+data = obj.generateSession("a356453","Home~641",pyotp.TOTP(token).now())
+
+
+refreshToken= data['data']['refreshToken']
+feedToken=obj.getfeedToken()
+userProfile= obj.getProfile(refreshToken)
+
+
+
+
 try:
-orderparams = {
-"variety": "NORMAL","tradingsymbol": "SBIN-EQ","symboltoken": "3045","transactiontype": "BUY","exchange": "NSE","ordertype": "LIMIT","producttype": "INTRADAY","duration": "DAY",
-"price": "19500","squareoff": "0","stoploss": "0","quantity": "1" }
-orderId=obj.placeOrder(orderparams)
-print("The order id is: {}".format(orderId))
+    orderparams = {
+        "variety": "ROBO",
+        "tradingsymbol": "SBIN-EQ",
+        "symboltoken": "3045",
+        "transactiontype": "SELL",
+        "exchange": "NSE",
+        "ordertype": "MARKET",
+        "producttype": "BO",
+        "duration": "DAY",
+        "price": "195",
+        "squareoff": "40",
+        "stoploss": "20",
+        "quantity": "1",
+        "trailingStopLoss": "1"
+        }
+    orderId=obj.placeOrder(orderparams)
+    print("The order id is: {}".format(orderId))
+except Exception as e:
+    print("Order placement failed: {}".format(e.message))
