@@ -1,4 +1,4 @@
-token = input("enter a number")
+token = input("token")
 
 import pyotp
 
@@ -12,8 +12,8 @@ import smartapi.smartExceptions
 
 
 
-obj=SmartConnect(api_key = input("enter a number"))     
-data = obj.generateSession(input("enter a number"), input("enter a number") ,pyotp.TOTP(token).now())
+obj=SmartConnect(api_key = input("api key"))     
+data = obj.generateSession(input("id"), input("pwd") ,pyotp.TOTP(token).now())
 
 
 refreshToken= data['data']['refreshToken']
