@@ -26,8 +26,8 @@ userProfile= obj.getProfile(refreshToken)
 try:
     orderparams = {
         "variety": "ROBO",
-        "tradingsymbol": "SBIN-EQ",
-        "symboltoken": "3045",
+        "tradingsymbol": "BANKNIFTY",
+        "symboltoken": input("symboltoken"),
         "transactiontype": "SELL",
         "exchange": "NSE",
         "ordertype": "MARKET",
