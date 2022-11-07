@@ -29,13 +29,13 @@ try:
         "tradingsymbol": "BANKNIFTY",
         "symboltoken": input("symboltoken"),
         "transactiontype": "SELL",
-        "exchange": "NSE",
+        "exchange": "NFO",
         "ordertype": "MARKET",
         "producttype": "BO",
         "duration": "DAY",
-        "price": "195",
-        "squareoff": "40",
-        "stoploss": "20",
+        "price": "MARKET",
+        "squareoff": "90",
+        "stoploss": "5",
         "quantity": "1",
         "trailingStopLoss": "1"
         }
